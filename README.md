@@ -1,12 +1,31 @@
-AWS Infrastructure Automation with Terraform
+# AWS Infrastructure Automation with Terraform
+
+## Overview
 
 This project demonstrates modular and reusable AWS infrastructure
 provisioning using Terraform.
 
-Architecture:
+The project follows a separation-of-concerns architecture with:
 
-- Separate environment root modules
+- Environment-specific root modules
 - Reusable Terraform modules
-- Environment-specific configuration
-- Infrastructure as Code
-- Secure AWS credential management
+- AWS provider configuration
+- Environment-specific variables
+- Infrastructure as Code practices
+- Secure state and credential management
+
+## Architecture
+
+```text
+                    Terraform
+                        |
+              Environment Root Module
+                        |
+          +-------------+-------------+
+          |             |             |
+       Network       Compute       Database
+        Module        Module         Module
+          |             |             |
+          +-------------+-------------+
+                        |
+                       AWS
